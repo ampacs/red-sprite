@@ -65,6 +65,7 @@ public class NetworkManagerExtended : NetworkManager {
                     Debug.Log(player.team);
                     player.teamID = player.team.teamID;
                     player.currentDirection = GameManager.instance.GetPlayerAction();
+                    GameManager.instance.connectedPlayers.Add(player);
                 }
             }
         }

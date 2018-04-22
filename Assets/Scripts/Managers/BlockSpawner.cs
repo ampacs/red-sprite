@@ -10,9 +10,10 @@ public class BlockSpawner : MonoBehaviour {
     public GameObject blockPrefab;
 
     void Awake () {
-        if (instance == null)
+        if (instance == null) {
             instance = this;
-        else if (instance != this)
+            DontDestroyOnLoad(gameObject);
+        } else if (instance != this)
             Destroy(gameObject);
     }
 
@@ -23,7 +24,6 @@ public class BlockSpawner : MonoBehaviour {
         if (GameManager.activeBlock == null) {
             GameObject instantiatedBlock = Instantiate(blockPrefab);
             instantiatedBlock.transform.position = spawnLocation.transform.position;
-            instantiatedBlock.transform.position -= 2 * Vector3.forward;
             GameManager.UpdateActiveBlock(instantiatedBlock);
         }
     }

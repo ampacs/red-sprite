@@ -12,12 +12,15 @@ public class GameManager : NetworkBehaviour {
     public static Block activeBlockComponent;
 
     public int scoreBlockBaseValue = 100;
-    public Player[] connectedPlayers;
+    public List<Player> connectedPlayers;
     public BlockAction.Direction[] playerActions;
     public bool[] playerActionsTaken;
     public Team[] playerTeams;
     public Team[] playerTeamsByID;
     public bool[] playerTeamsTaken;
+
+    public float matchTime;
+    public float matchLength = 120;
 
     public NetworkClient client;
 
@@ -33,6 +36,8 @@ public class GameManager : NetworkBehaviour {
 
     void Start () {
         blockCommandQueue = new List<Vector2>();
+        connectedPlayers = new List<Player>();
+        matchTime = matchLength;
         //client = NetworkManager.singleton.client;
     }
 
@@ -41,6 +46,19 @@ public class GameManager : NetworkBehaviour {
             activeBlockComponent.SetMovementDirection(blockCommandQueue[0]);
             blockCommandQueue.RemoveAt(0);
             activeBlockComponent.RefreshAcceleration();
+        }
+        if (connectedPlayers.Count > 0) {
+            matchTime -= Time.deltaTime;
+            ScreenStateManager.instance.timer.text = string.Format("{0:00}:{1:00}", (int)(matchTime / 60), (int)(matchTime%60));
+        }
+        if (matchTime <= 0) {
+            TriggerGameOver();
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other) {
+        if (other.gameObject != activeBlock) {
+            TriggerGameOver();
         }
     }
 
@@ -119,8 +137,19 @@ public class GameManager : NetworkBehaviour {
         blockCommandQueue.Add(direction);
     }
 
+    public void TriggerGameOver() {
+        Debug.Log("Game is Over!");
+    }
+
     public static void UpdateActiveBlock (GameObject newBlock) {
+        foreach (Player player in GameManager.instance.connectedPlayers) {
+            if (player.team == GameManager.activeBlock.GetComponent<Block>().team) {
+                player.AddScore();
+                ScreenStateManager.instance.scoreMeters[player.teamID].text = string.Format("{0:0000}", player.score);
+            }
+        }
         GameManager.activeBlock = newBlock;
         GameManager.activeBlockComponent = GameManager.activeBlock.GetComponent<Block>();
     }
+
 }

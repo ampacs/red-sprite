@@ -40,6 +40,7 @@ public class Player : NetworkBehaviour {
             Debug.Log("HERE2");
             // GameManager.instance.AddBlockCommandToQueue(input);
             SendDirectionCommand ();
+            Debug.Log(score);
         }
     }
     void SendDirectionCommand () {
@@ -53,7 +54,11 @@ public class Player : NetworkBehaviour {
         NetworkManager.singleton.client.Send(DirectionMessage.MSG, msg);
     }
 
-    void AddScore (int scoreIncrement) {
+    public void AddScore (int scoreIncrement) {
         score += scoreIncrement;
+    }
+
+    public void AddScore () {
+        score += SCORE_INCREMENT;
     }
 }
