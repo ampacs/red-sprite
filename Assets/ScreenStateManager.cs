@@ -2,21 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class ScreenStateManager : MonoBehaviour {
+public class ScreenStateManager : NetworkBehaviour {
 
     public enum ServerScreenState {
-        Match, Waiting, Title, GameOver 
+        Match, Waiting, Title, GameOver, None
     }
 
     public enum ClientScreenState {
-        Title, Finder, Match, GameOver
+        Title, Finder, Match, GameOver, None
     }
 
     public static ScreenStateManager instance;
 
-
-
+    [SyncVar]
+    public ServerScreenState currentServerState;
+    public ClientScreenState currentClientState;
     public Text[] scoreMeters;
     public Text timer;
 
@@ -29,7 +31,12 @@ public class ScreenStateManager : MonoBehaviour {
     }
 
     void Start () {
-        
+        if (isServer) {
+            currentServerState = ServerScreenState.Title;
+            currentClientState = ClientScreenState.None;
+        } else {
+            currentClientState = ClientScreenState.Title;
+        }
     }
 
     void Update () {
