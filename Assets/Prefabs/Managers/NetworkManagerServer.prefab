@@ -55,7 +55,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   showGUI: 1
   offsetX: 0
-  offsetY: 0
+  offsetY: 100
 --- !u!114 &114876063895854906
 MonoBehaviour:
   m_ObjectHideFlags: 1
