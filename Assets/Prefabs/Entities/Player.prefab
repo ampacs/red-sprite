@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4396996932515082}
+  - component: {fileID: 114642609804406344}
   - component: {fileID: 114207917588063910}
   m_Layer: 0
   m_Name: Player
@@ -53,4 +54,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   team: {fileID: 0}
+  currentDirection: 0
   input: {x: 0, y: 0}
+--- !u!114 &114642609804406344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872468796434810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 157
+    i1: 241
+    i2: 238
+    i3: 126
+    i4: 156
+    i5: 184
+    i6: 154
+    i7: 4
+    i8: 249
+    i9: 165
+    i10: 163
+    i11: 142
+    i12: 69
+    i13: 200
+    i14: 191
+    i15: 244
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1

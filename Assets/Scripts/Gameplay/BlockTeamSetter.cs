@@ -19,9 +19,11 @@ public class BlockTeamSetter : MonoBehaviour {
             if (_block != null) {
                 if (blockComponent.team != null && _block.team == null) {
                     _block.team = blockComponent.team;
+                    _block.DisablePhysics();
                 }
                 if (blockComponent.team == null && _block.team != null) {
                     blockComponent.team = _block.team;
+                    blockComponent.DisablePhysics();
                 }
             } else if (_blockTeamApplier != null) {
                 if (blockComponent.team != null && _blockTeamApplier.team == null) {
@@ -29,6 +31,7 @@ public class BlockTeamSetter : MonoBehaviour {
                 }
                 if (blockComponent.team == null && _blockTeamApplier.team != null) {
                     blockComponent.team = _blockTeamApplier.team;
+                    blockComponent.DisablePhysics();
                 }
             }
         }

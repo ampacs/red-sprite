@@ -54,3 +54,11 @@ MonoBehaviour:
   scoreBlockBaseValue: 100
   connectedPlayers: []
   playerActions: 
+  playerActionsTaken: 
+  playerTeams: []
+  playerTeamsByID:
+  - {fileID: 11400000, guid: e4addad85d70a3b4f8de445ecef47aa8, type: 2}
+  - {fileID: 11400000, guid: 1548048f7b017284cb8a5a5839e7898d, type: 2}
+  - {fileID: 11400000, guid: e5f40f47d93ca7a479ccbeb944d5fd1f, type: 2}
+  - {fileID: 11400000, guid: e3d4d76151774de4ea66fcdced6e0849, type: 2}
+  playerTeamsTaken: 

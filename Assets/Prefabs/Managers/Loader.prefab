@@ -57,3 +57,5 @@ MonoBehaviour:
     type: 2}
   blockSpawner: {fileID: 1515405503996812, guid: b00535e4882032545a9fd6448572f4bc,
     type: 2}
+  playerTeams: {fileID: 1597937979183584, guid: 9022dee9c925c85469452355670e1a63,
+    type: 2}
