@@ -23,6 +23,7 @@ public class BlockSpawner : MonoBehaviour {
         if (GameManager.activeBlock == null) {
             GameObject instantiatedBlock = Instantiate(blockPrefab);
             instantiatedBlock.transform.position = spawnLocation.transform.position;
+            instantiatedBlock.transform.position -= 2 * Vector3.forward;
             GameManager.UpdateActiveBlock(instantiatedBlock);
         }
     }
