@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4825587060428324}
+  - component: {fileID: 114566580940283218}
   - component: {fileID: 114520717806815750}
   m_Layer: 0
   m_Name: ScreenStateManager
@@ -51,8 +52,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83951d7c13f887f42bc3cc7364730e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentServerState: 0
+  currentClientState: 0
   scoreMeters:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  timer: {fileID: 0}
+--- !u!114 &114566580940283218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1316856653450704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 227
+    i1: 105
+    i2: 120
+    i3: 110
+    i4: 100
+    i5: 228
+    i6: 39
+    i7: 164
+    i8: 10
+    i9: 36
+    i10: 219
+    i11: 213
+    i12: 152
+    i13: 244
+    i14: 145
+    i15: 217
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
