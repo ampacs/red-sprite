@@ -52,8 +52,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83951d7c13f887f42bc3cc7364730e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ServerMatchScreen: {fileID: 0}
+  ServerTitleScreen: {fileID: 0}
+  ClientMatchScreen: {fileID: 0}
+  ClientTitleScreen: {fileID: 0}
+  WaitingScreenWaitingForPlayer: []
+  WaitingScreenPlayerReady: []
+  previousServerState: 4
   currentServerState: 0
+  previousClientState: 4
   currentClientState: 0
+  startMatch: 0
   scoreMeters:
   - {fileID: 0}
   - {fileID: 0}

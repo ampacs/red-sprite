@@ -11,6 +11,7 @@ public class GameManager : NetworkBehaviour {
     public static GameObject activeBlock;
     public static Block activeBlockComponent;
 
+    public bool matchFinished;
     public int scoreBlockBaseValue = 100;
     public List<Player> connectedPlayers;
     public BlockAction.Direction[] playerActions;
@@ -38,6 +39,8 @@ public class GameManager : NetworkBehaviour {
         blockCommandQueue = new List<Vector2>();
         connectedPlayers = new List<Player>();
         matchTime = matchLength;
+        matchFinished = false;
+        ScreenStateManager.instance.gameObject.SetActive(true);
         //client = NetworkManager.singleton.client;
     }
 
@@ -47,10 +50,11 @@ public class GameManager : NetworkBehaviour {
             blockCommandQueue.RemoveAt(0);
             activeBlockComponent.RefreshAcceleration();
         }
-        if (connectedPlayers.Count > 0) {
+        /* /
+        if (ScreenStateManager.instance.startMatch == true) {
             matchTime -= Time.deltaTime;
             ScreenStateManager.instance.timer.text = string.Format("{0:00}:{1:00}", (int)(matchTime / 60), (int)(matchTime%60));
-        }
+        }/* */
         if (matchTime <= 0) {
             TriggerGameOver();
         }
@@ -139,6 +143,7 @@ public class GameManager : NetworkBehaviour {
 
     public void TriggerGameOver() {
         Debug.Log("Game is Over!");
+        matchFinished = true;
     }
 
     public static void UpdateActiveBlock (GameObject newBlock) {
